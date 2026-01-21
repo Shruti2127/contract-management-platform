@@ -1,73 +1,133 @@
-# React + TypeScript + Vite
+# Contract Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-based **Contract Management Platform** built from scratch to demonstrate product thinking, UI design, state management, and clean code architecture. The project allows users to create reusable contract templates (blueprints), generate contracts, and manage their lifecycle.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### 1. Blueprint Creation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Create a blueprint as a reusable contract template.
+* Configurable field types:
+  * Text
+  * Date
+  * Signature
+  * Checkbox
+* Basic positioning of fields on a page.
+* Stores metadata for each field:
+  * Type
+  * Label
+  * Position
+* Data persistence (local or mocked).
 
-## Expanding the ESLint configuration
+### 2. Contract Creation from Blueprint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Select an existing blueprint.
+* Generate a contract that inherits all blueprint fields.
+* Fill values for each field.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 3. Contract Lifecycle
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Each contract follows a lifecycle:  
+`Created → Approved → Sent → Signed → Locked`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 4. User Interaction
+
+* Fill and edit contract fields.
+* Track contract status and updates.
+
+---
+
+## Tech Stack
+ 
+●  React 
+●  TypeScript 
+●  Component-based architecture 
+●  Proper state management 
+●  Clean folder structure 
+
+## Project Structure
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── assets/                # Images, icons, fonts
+├── components/            # Reusable UI components
+│   ├── BlueprintCard.tsx
+│   ├── ContractCard.tsx
+│   ├── FieldInput.tsx
+│   └── StatusFilter.tsx
+├── pages/                 # Application pages
+│   ├── Blueprints.tsx
+│   ├── Contracts.tsx
+│   └── ContractDetail.tsx
+├── state/                 # Global state management
+│   └── store.ts
+├── types/                 # TypeScript types
+│   └── index.ts
+├── utils/                 # Helper functions
+│   └── lifecycle.ts
+├── App.tsx                # Main app component
+├── index.css              # Global CSS
+└── main.tsx               # Entry point
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+````
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/ContractManagementPlatform.git
+````
+
+2. Navigate to the project directory:
+
+```bash
+cd ContractManagementPlatform
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view in the browser.
+
+---
+
+## Goals & Learning Outcomes
+
+* Learn **frontend architecture** from scratch.
+* Implement **state management** for dynamic forms.
+* Understand **contract lifecycle management** in a web application.
+* Practice **clean code practices** and **modular component design**.
+
+---
+
+## Roadmap / Future Enhancements
+
+* Add **backend integration** (Node.js/Express + Database) to store contracts persistently.
+* Add **authentication** for multiple users.
+* Implement **real-time contract collaboration**.
+* Include **export/print contracts** as PDF.
+
+---
+
+## Author
+
+**Shruti Bonde**
+CSE (Cloud Computing) | Backend & Cloud Development
+Learning DevOps & Cloud Architecture
+
 ```
